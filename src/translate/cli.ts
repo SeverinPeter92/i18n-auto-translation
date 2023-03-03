@@ -11,6 +11,7 @@ interface Arguments {
   to: string;
   override: boolean;
   certificatePath?: string;
+  name?: string;
 }
 
 export const argv: Arguments = yargs(process.argv.slice(2))
@@ -27,6 +28,7 @@ export const argv: Arguments = yargs(process.argv.slice(2))
         'lecto-rapid',
         'lingvanex-rapid',
         'nlp-rapid',
+        'deep-l',
       ],
       default: 'google-official',
     },
@@ -75,6 +77,11 @@ export const argv: Arguments = yargs(process.argv.slice(2))
       type: 'string',
       alias: 'c',
       description: 'Path to a custom certificate.',
+    },
+    name: {
+      type: 'string',
+      alias: 'n',
+      description: 'Name of output file',
     },
   })
   .parseSync();

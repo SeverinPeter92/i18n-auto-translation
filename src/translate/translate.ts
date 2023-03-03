@@ -6,10 +6,9 @@ import extend from 'just-extend';
 import path from 'path';
 import { argv } from './cli';
 import { JSONObj } from './payload';
-import { replaceAll } from './util';
 
 export abstract class Translate {
-  public static readonly sentenceDelimiter: string = '\n{|}\n';
+  public static readonly sentenceDelimiter: string = '\n~~~~\n';
 
   public translate = (): void => {
     if (argv.filePath && argv.dirPath)
@@ -37,7 +36,7 @@ export abstract class Translate {
       const fileForTranslation = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as JSONObj;
       const saveTo: string = path.join(
         filePath.substring(0, filePath.lastIndexOf('/')),
-        `${argv.to}.json`
+        `${argv.name ?? argv.to}.json`
       );
       if (argv.override || !fs.existsSync(saveTo))
         this.translationDoesNotExists(fileForTranslation, saveTo);
@@ -130,12 +129,8 @@ export abstract class Translate {
   };
 
   protected saveTranslation = (value: string, originalObject: JSONObj, saveTo: string): void => {
-    // replaceAll() is used because of weird bug that sometimes happens
-    // when translate api return delimiter with space in between
-    let translations = replaceAll(value, '{| }', '{|}');
-    translations = replaceAll(translations, '{ |}', '{|}');
     let content: JSONObj = this.createTranslatedObject(
-      translations.split(Translate.sentenceDelimiter.trim()),
+      value.split(Translate.sentenceDelimiter.trim()),
       originalObject
     );
     let message: string = `File saved: ${saveTo}`;
