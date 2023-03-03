@@ -63,7 +63,7 @@ $ i18n-auto-translation -k SUBSCRIPTION_KEY -d PROJECT_DIR -t DESIRED_LANGUAGE
 ### Options
 
 | Key                                       | Alias | Description                                                                                            | Default         |
-| ----------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------ | --------------- |
+|-------------------------------------------|-------|--------------------------------------------------------------------------------------------------------| --------------- |
 | --help                                    | /     | All available options.                                                                                 | /               |
 | --version                                 | /     | Current version.                                                                                       | /               |
 | --apiProvider                             | -a    | API Provider.                                                                                          | google-official |
@@ -75,6 +75,7 @@ $ i18n-auto-translation -k SUBSCRIPTION_KEY -d PROJECT_DIR -t DESIRED_LANGUAGE
 | --to [required]                           | -t    | To which language you want to translate.                                                               | /               |
 | --override                                | -o    | Override all created i18n JSON files.                                                                  | false           |
 | --certificatePath                         | -c    | Path to a custom certificate.                                                                          | /               |
+| --name                                    | -n    | Name of output file                                                                                    | /               |
 
 ## Demo
 
@@ -83,7 +84,7 @@ https://user-images.githubusercontent.com/49982438/158603886-23c9978b-56e0-4f50-
 ## Translate Providers
 
 | Provider                                                                                                                          | CLI usage       |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+|-----------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | [Google Translate Official](https://cloud.google.com/translate/)                                                                  | google-official |
 | [Azure Translator Official](https://azure.microsoft.com/en-us/services/cognitive-services/translator/)                            | azure-official  |
 | [Azure Translator RapidAPI](https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text/) | azure-rapid     |
@@ -91,6 +92,7 @@ https://user-images.githubusercontent.com/49982438/158603886-23c9978b-56e0-4f50-
 | [Lecto Translation RapidAPI](https://rapidapi.com/lecto-lecto-default/api/lecto-translation/)                                     | lecto-rapid     |
 | [Lingvanex Translate RapidAPI](https://rapidapi.com/Lingvanex/api/lingvanex-translate/)                                           | lingvanex-rapid |
 | [NLP Translation RapidAPI](https://rapidapi.com/gofitech/api/nlp-translation/)                                                    | nlp-rapid       |
+| [DeepL Translator](https://www.deepl.com/docs-api/translate-text/translate-text/)                                                 | deep-l          |
 
 ### Obtaining keys
 
@@ -105,6 +107,10 @@ https://user-images.githubusercontent.com/49982438/158603886-23c9978b-56e0-4f50-
   - For all RapidAPI providers, create an account [here](https://rapidapi.com/).
   - Go to desired API and switch to the pricing section. There you will find instructions on how to subscribe to the API.
   - Now you can use your key provided from RapidAPI.
+- DeepL
+  - Goto https://www.deepl.com/pro-api?cta=header-pro-api/ and create an account.
+  - In the account go to the tab Account
+  - The key is found in the section "Authentication Key for DeepL API"
 
 ### Adding Provider
 

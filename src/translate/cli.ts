@@ -11,6 +11,7 @@ interface Arguments {
   to: string;
   override: boolean;
   certificatePath?: string;
+  name?: string;
 }
 
 export const argv: Arguments = yargs(process.argv.slice(2))
