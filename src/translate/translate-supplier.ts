@@ -6,6 +6,7 @@ import { LectoRapidAPI } from './providers/lecto-rapid-api';
 import { LingvanexRapidAPI } from './providers/lingvanex-rapid-api';
 import { NLPRapidAPI } from './providers/nlp-rapid-api';
 import { Translate } from './translate';
+import { DeepLAPI } from './providers/deep-l-api';
 
 interface Providers {
   'google-official': GoogleOfficialAPI;
@@ -15,6 +16,7 @@ interface Providers {
   'lecto-rapid': LectoRapidAPI;
   'lingvanex-rapid': LingvanexRapidAPI;
   'nlp-rapid': NLPRapidAPI;
+  'deep-l': DeepLAPI;
 }
 
 export class TranslateSupplier {
@@ -26,6 +28,7 @@ export class TranslateSupplier {
     'lecto-rapid': new LectoRapidAPI(),
     'lingvanex-rapid': new LingvanexRapidAPI(),
     'nlp-rapid': new NLPRapidAPI(),
+    'deep-l': new DeepLAPI(),
   };
 
   public static getProvider = (provider: string): Translate =>
